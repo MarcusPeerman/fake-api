@@ -6,7 +6,7 @@ const todos = [
   { id: 2, title: "Build my own API", completed: true }
 ];
 
-// Example route
+
 app.get("/todos/:id", (req, res) => {
   const todo = todos.find(t => t.id == req.params.id);
   if (todo) {
@@ -16,12 +16,14 @@ app.get("/todos/:id", (req, res) => {
   }
 });
 
-// Root route
+
 app.get("/", (req, res) => {
   res.send("My fake API is running!");
 });
 
-// Use Render’s dynamic port
+
 const PORT = process.env.PORT || 10000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => {
+  console.log(`Server running and listening on port ${PORT}`);
+});
 
