@@ -6,7 +6,6 @@ const todos = [
   { id: 2, title: "Build my own API", completed: true }
 ];
 
-
 app.get("/todos/:id", (req, res) => {
   const todo = todos.find(t => t.id == req.params.id);
   if (todo) {
@@ -16,14 +15,13 @@ app.get("/todos/:id", (req, res) => {
   }
 });
 
-
 app.get("/", (req, res) => {
   res.send("My fake API is running!");
 });
 
-
-const PORT = process.env.PORT || 10000;
+// 🔑 MUST ONLY use Render-assigned port
+const PORT = process.env.PORT;
 app.listen(PORT, "0.0.0.0", () => {
-  console.log(`Server running and listening on port ${PORT}`);
+  console.log(`✅ Server running on Render at port ${PORT}`);
 });
 
